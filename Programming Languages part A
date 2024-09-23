@@ -1,0 +1,51 @@
+(* 8 *)
+fun number_before_reaching_sum(sum : int,ws:int list) =
+    let fun add(x:int,ys:int list, z:int)=
+		if x+hd ys<sum
+		then add(x+hd ys, tl ys,z+1)
+		else z
+	in
+	    add(0,ws,0)
+    end
+
+(* 9 *)
+fun what_month(x:int)=
+    let val month = [31,28,31,30,31,30,31,31,30,31,30,31]
+    in
+	add(x,month)+1
+    end
+
+(* 10 *)
+fun month_range(x:int, y:int)=
+    if x>y
+    then []
+    else
+	let fun createList(xs:int list)=
+		if hd xs = y
+		then xs
+		else createList(hd xs +1::xs) 
+	    val range = createList([x])
+	    fun series(ys:int list,zs:int list)=
+		if null ys
+		then zs
+		else
+		    series(tl ys,what_month(hd ys)::zs)   
+	in
+	    series(range,[])  
+	end
+	    
+	    
+
+	    
+			 
+
+			 
+	
+	    
+	
+	
+				    
+ 
+	     
+	      	
+		       
